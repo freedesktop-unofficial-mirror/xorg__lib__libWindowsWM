@@ -142,7 +142,7 @@ event_to_wire (Display *dpy, XEvent  *re, xEvent  *event)
  *                                                                           *
  *****************************************************************************/
 
-#if 1
+#if 0
 #include <stdio.h>
 #define TRACE(msg)  fprintf(stderr, "WindowsWM%s\n", msg);
 #else
@@ -345,10 +345,6 @@ XWindowsWMFrameDraw (Display* dpy, int screen, Window window,
   req->iy = iy;
   req->iw = iw;
   req->ih = ih;
-  printf ("0x%08x 0x%08x 0x%08x",
-	  (int)req->window, (int)req->frame_style, (int)req->frame_style_ex);
-  printf ("%d %d %d %d\n",
-	  req->ix, req->iy, req->iw, req->ih);
   
   UnlockDisplay(dpy);
   SyncHandle();
