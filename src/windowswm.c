@@ -1,7 +1,4 @@
-/*
- * WindowsWM extension is based on AppleWM extension
- * Authors:	Kensuke Matsuzaki
- */
+/* WindowsWM extension is based on AppleWM extension*/
 /**************************************************************************
 
 Copyright (c) 2002 Apple Computer, Inc.
@@ -33,13 +30,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #define NEED_EVENTS
 #define NEED_REPLIES
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
 #include <X11/Xlibint.h>
-#include <X11/extensions/windowswmstr.h>
+#include "windowswmstr.h"
 #include <X11/extensions/Xext.h>
-#include <X11/extensions/extutil.h>
+#include "extutil.h"
 #include <stdio.h>
 
 static XExtensionInfo _windowswm_info_data;
@@ -148,7 +142,7 @@ event_to_wire (Display *dpy, XEvent  *re, xEvent  *event)
  *                                                                           *
  *****************************************************************************/
 
-#if 0
+#if 1
 #include <stdio.h>
 #define TRACE(msg)  fprintf(stderr, "WindowsWM%s\n", msg);
 #else
@@ -351,6 +345,10 @@ XWindowsWMFrameDraw (Display* dpy, int screen, Window window,
   req->iy = iy;
   req->iw = iw;
   req->ih = ih;
+  printf ("0x%08x 0x%08x 0x%08x",
+	  (int)req->window, (int)req->frame_style, (int)req->frame_style_ex);
+  printf ("%d %d %d %d\n",
+	  req->ix, req->iy, req->iw, req->ih);
   
   UnlockDisplay(dpy);
   SyncHandle();
