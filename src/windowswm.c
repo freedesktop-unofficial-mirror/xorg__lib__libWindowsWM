@@ -39,7 +39,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <X11/Xlibint.h>
 #include <X11/extensions/windowswmstr.h>
 #include <X11/extensions/Xext.h>
-#include "extutil.h"
+#include <X11/extensions/extutil.h>
 #include <stdio.h>
 
 static XExtensionInfo _windowswm_info_data;
