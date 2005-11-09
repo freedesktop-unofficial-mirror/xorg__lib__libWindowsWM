@@ -1,0 +1,8 @@
+2005-11-09  Adam Jackson  <ajax@freedesktop.org>
+
+	* configure.ac:
+	* NEWS:
+	* README:
+	* man/Makefile.am:
+	* src/Makefile.am:
+	Build fixes.  Version bump for RC2 release.
