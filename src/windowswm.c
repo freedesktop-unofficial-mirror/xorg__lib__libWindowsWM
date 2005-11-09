@@ -33,8 +33,11 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #define NEED_EVENTS
 #define NEED_REPLIES
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <X11/Xlibint.h>
-#include "windowswmstr.h"
+#include <X11/extensions/windowswmstr.h>
 #include <X11/extensions/Xext.h>
 #include "extutil.h"
 #include <stdio.h>
