@@ -6,6 +6,6 @@ includedir=@includedir@
 Name: WindowsWM
 Description: The WindowsWM Library
 Version: @PACKAGE_VERSION@
-Cflags: -I${includedir} @DEP_CFLAGS@
-Libs: -L${libdir} -lWindowsWM @DEP_LIBS@
-
+Requires.private: x11 xext
+Cflags: -I${includedir}
+Libs: -L${libdir} -lWindowsWM

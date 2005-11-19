@@ -34,7 +34,7 @@ AC_PROG_CC
 AC_PROG_LIBTOOL
 
 # Check for dependencies
-PKG_CHECK_MODULES(WINDOWSWM, x11 xext windowswmproto)
+PKG_CHECK_MODULES(WINDOWSWM, x11 xext xextproto windowswmproto)
 
 AC_SUBST(WINDOWSWM_CFLAGS)
 AC_SUBST(WINDOWSWM_LIBS)
