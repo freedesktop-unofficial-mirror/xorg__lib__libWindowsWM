@@ -39,6 +39,8 @@ PKG_CHECK_MODULES(WINDOWSWM, x11 xext xextproto windowswmproto)
 AC_SUBST(WINDOWSWM_CFLAGS)
 AC_SUBST(WINDOWSWM_LIBS)
 		  
+XORG_CHECK_MALLOC_ZERO
+
 AC_OUTPUT([Makefile
 	   src/Makefile
 	   man/Makefile
