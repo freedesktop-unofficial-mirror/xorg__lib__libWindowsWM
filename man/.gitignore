@@ -1,2 +1,3 @@
-Makefile
-Makefile.in
+#		Add & Override for this directory and it's subdirectories
+# Override default pattern *.[0-9] from toplevel .gitignore
+!WindowsWM.3
