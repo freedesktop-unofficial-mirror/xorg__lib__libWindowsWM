@@ -24,8 +24,7 @@ SUBDIRS = src man
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = windowswm.pc
 
-EXTRA_DIST = windowswm.pc.in ChangeLog
-MAINTAINERCLEANFILES = ChangeLog
+EXTRA_DIST = windowswm.pc.in 
 
 .PHONY: ChangeLog
 
