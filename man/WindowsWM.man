@@ -31,7 +31,7 @@
 .\" .TP \\$1
 .\" ..
 .\" 
-.TH "WINDOWSWM" "3" "Version 1.0" "XFree86" ""
+.TH "WINDOWSWM" __libmansuffix__ __vendorversion__
 .SH "NAME"
 WindowsWM \- Cygwin/X rootless window management extension.
 .SH "SYNTAX"
