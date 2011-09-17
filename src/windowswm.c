@@ -77,7 +77,7 @@ static XEXT_GENERATE_FIND_DISPLAY (find_display, windowswm_info,
                                    windowswm_extension_name,
                                    &windowswm_extension_hooks,
                                    WindowsWMNumberEvents, NULL);
-     
+
 static XEXT_GENERATE_CLOSE_DISPLAY (close_display, windowswm_info);
 
 static Bool
@@ -86,9 +86,9 @@ wire_to_event (Display *dpy, XEvent  *re, xEvent  *event)
   XExtDisplayInfo *info = find_display (dpy);
   XWindowsWMNotifyEvent *se;
   xWindowsWMNotifyEvent *sevent;
-  
+
   WindowsWMCheckExtension (dpy, info, False);
-  
+
   switch ((event->u.u.type & 0x7f) - info->codes->first_event)
     {
     case WindowsWMControllerNotify:
@@ -118,9 +118,9 @@ event_to_wire (Display *dpy, XEvent  *re, xEvent  *event)
   XExtDisplayInfo *info = find_display (dpy);
   XWindowsWMNotifyEvent *se;
   xWindowsWMNotifyEvent *sevent;
-  
+
   WindowsWMCheckExtension (dpy, info, False);
-  
+
   switch ((re->type & 0x7f) - info->codes->first_event)
     {
     case WindowsWMControllerNotify:
@@ -161,7 +161,7 @@ XWindowsWMQueryExtension (Display *dpy,
 			  int *event_basep, int *error_basep)
 {
   XExtDisplayInfo *info = find_display (dpy);
-  
+
   TRACE("QueryExtension...");
   if (XextHasExtension(info))
     {
@@ -184,10 +184,10 @@ XWindowsWMQueryVersion (Display* dpy, int* majorVersion,
   XExtDisplayInfo *info = find_display (dpy);
   xWindowsWMQueryVersionReply rep;
   xWindowsWMQueryVersionReq *req;
-  
+
   TRACE("QueryVersion...");
   WindowsWMCheckExtension (dpy, info, False);
-  
+
   LockDisplay(dpy);
   GetReq(WindowsWMQueryVersion, req);
   req->reqType = info->codes->major_opcode;
@@ -216,7 +216,7 @@ XWindowsWMDisableUpdate (Display* dpy, int screen)
 
   TRACE("DisableUpdate...");
   WindowsWMCheckExtension (dpy, info, False);
-  
+
   LockDisplay(dpy);
   GetReq(WindowsWMDisableUpdate, req);
   req->reqType = info->codes->major_opcode;
@@ -233,10 +233,10 @@ XWindowsWMReenableUpdate (Display* dpy, int screen)
 {
   XExtDisplayInfo *info = find_display (dpy);
   xWindowsWMReenableUpdateReq *req;
-  
+
   TRACE("ReenableUpdate...");
   WindowsWMCheckExtension (dpy, info, False);
-  
+
   LockDisplay(dpy);
   GetReq(WindowsWMReenableUpdate, req);
   req->reqType = info->codes->major_opcode;
@@ -253,10 +253,10 @@ XWindowsWMSelectInput (Display* dpy, unsigned long mask)
 {
   XExtDisplayInfo *info = find_display (dpy);
   xWindowsWMSelectInputReq *req;
-  
+
   TRACE("SelectInput...");
   WindowsWMCheckExtension (dpy, info, False);
-  
+
   LockDisplay(dpy);
   GetReq(WindowsWMSelectInput, req);
   req->reqType = info->codes->major_opcode;
@@ -274,10 +274,10 @@ XWindowsWMSetFrontProcess (Display* dpy)
 {
   XExtDisplayInfo *info = find_display (dpy);
   xWindowsWMSetFrontProcessReq *req;
-  
+
   TRACE("SetFrontProcess...");
   WindowsWMCheckExtension (dpy, info, False);
-  
+
   LockDisplay(dpy);
   GetReq(WindowsWMSetFrontProcess, req);
   req->reqType = info->codes->major_opcode;
@@ -297,10 +297,10 @@ XWindowsWMFrameGetRect (Display* dpy, unsigned int frame_style,
   XExtDisplayInfo *info = find_display (dpy);
   xWindowsWMFrameGetRectReply rep;
   xWindowsWMFrameGetRectReq *req;
-  
+
   TRACE("FrameGetRect...");
   WindowsWMCheckExtension (dpy, info, False);
-  
+
   LockDisplay(dpy);
   GetReq(WindowsWMFrameGetRect, req);
   req->reqType = info->codes->major_opcode;
@@ -335,10 +335,10 @@ XWindowsWMFrameDraw (Display* dpy, int screen, Window window,
 {
   XExtDisplayInfo *info = find_display (dpy);
   xWindowsWMFrameDrawReq *req;
-  
+
   TRACE("FrameDraw...");
   WindowsWMCheckExtension (dpy, info, False);
-  
+
   LockDisplay(dpy);
   GetReq(WindowsWMFrameDraw, req);
   req->reqType = info->codes->major_opcode;
@@ -351,7 +351,7 @@ XWindowsWMFrameDraw (Display* dpy, int screen, Window window,
   req->iy = iy;
   req->iw = iw;
   req->ih = ih;
-  
+
   UnlockDisplay(dpy);
   SyncHandle();
   TRACE("FrameDraw... return True");
@@ -364,10 +364,10 @@ XWindowsWMFrameSetTitle (Display* dpy, int screen, Window window,
 {
   XExtDisplayInfo *info = find_display (dpy);
   xWindowsWMFrameSetTitleReq *req;
-  
+
   TRACE("FrameSetTitle...");
   WindowsWMCheckExtension (dpy, info, False);
-  
+
   LockDisplay(dpy);
   GetReq(WindowsWMFrameSetTitle, req);
   req->reqType = info->codes->major_opcode;
@@ -375,10 +375,10 @@ XWindowsWMFrameSetTitle (Display* dpy, int screen, Window window,
   req->screen = screen;
   req->window = window;
   req->title_length = title_length;
-  
+
   req->length += (title_length + 3)>>2;
   Data (dpy, title_bytes, title_length);
-  
+
   UnlockDisplay(dpy);
   SyncHandle();
   TRACE("FrameSetTitle... return True");

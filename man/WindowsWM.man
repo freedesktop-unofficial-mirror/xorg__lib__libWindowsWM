@@ -1,10 +1,10 @@
-.\" 
+.\"
 .\" $XFree86: xc/lib/apple/WindowsWM.man,v 1.2 2003/09/16 00:36:08 torrey Exp $
-.\" 
+.\"
 .\" Copyright (c) 2002 Apple Computer, Inc. All Rights Reserved.
 .\" Copyright (c) 2003 Torrey T. Lyons. All Rights Reserved.
 .\" Copyright (c) 2008 Yaakov Selkowitz, All Rights Reserved.
-.\" 
+.\"
 .\" Permission is hereby granted, free of charge, to any person obtaining a
 .\" copy of this software and associated documentation files (the
 .\" "Software"), to deal in the Software without restriction, including
@@ -12,11 +12,11 @@
 .\" distribute, sub license, and/or sell copies of the Software, and to
 .\" permit persons to whom the Software is furnished to do so, subject to
 .\" the following conditions:
-.\" 
+.\"
 .\" The above copyright notice and this permission notice (including the
 .\" next paragraph) shall be included in all copies or substantial portions
 .\" of the Software.
-.\" 
+.\"
 .\" THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
 .\" OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 .\" MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
@@ -24,24 +24,24 @@
 .\" ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 .\" TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 .\" SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-.\" 
+.\"
 .\" .de TQ
 .\" .br
 .\" .ns
 .\" .TP \\$1
 .\" ..
-.\" 
+.\"
 .TH "WINDOWSWM" __libmansuffix__ __vendorversion__
 .SH "NAME"
 WindowsWM \- Cygwin/X rootless window management extension.
 .SH "SYNTAX"
 \&#include <X11/extensions/windowswm.h>
-.nf    
+.nf
 .sp
-Bool XWindowsWMQueryExtension \^(\^Display *\fIdpy\fP, 
+Bool XWindowsWMQueryExtension \^(\^Display *\fIdpy\fP,
         int *\fIevent_base\fP, int *\fIerror_base\fP\^);
 .sp
-Status XWindowsWMQueryVersion \^(\^Display *\fIdpy\fP, int *\fImajorVersion\fP, 
+Status XWindowsWMQueryVersion \^(\^Display *\fIdpy\fP, int *\fImajorVersion\fP,
         int *\fIminorVersion\fP, int *\fIpatchVersion\fP\^);
 .sp
 Bool XWindowsWMDisableUpdate \^(\^Display *\fIdpy\fP, int \fIscreen\fP\^);
@@ -72,7 +72,7 @@ Bool XWindowsWMFrameSetTitle \^(\^Display *\fIdpy\fP, int \fIscreen\fP,
         Window \fIwindow\fP,
         unsigned int \fItitle_length\fP,
         const char *\fItitle_bytes\fP\^);
-.fi 
+.fi
 .SH "ARGUMENTS"
 .IP \fIdpy\fP 1i
 Specifies the connection to the X server.
@@ -92,9 +92,9 @@ Specifies which rectangle to return from the window frame decoration.
 Rectangle of the window content inside the window frame decoration.
 
 .SH "DATATYPES"
-.PP 
+.PP
 .B Events
-.nf 
+.nf
 typedef struct {
     int type;               \/* of event *\/
     unsigned long serial;   \/* # of last request processed by server *\/
@@ -109,27 +109,27 @@ typedef struct {
     int w;
     int h;
 } XWindowsWMNotifyEvent;
-.fi 
+.fi
 .B XWindowsWMNotifyEvent
 is sent to a client who has requested notification of WindowsWM events with
 \fBXWindowsWMSelectInput\fP.
 
-.PP 
+.PP
 Event types:
-.nf 
+.nf
 \&#define WindowsWMControllerNotify               0
 \&#define WindowsWMActivationNotify               1
 \&#define WindowsWMNumberEvents                   2
-.fi 
-.PP 
+.fi
+.PP
 Event masks:
-.nf 
+.nf
 \&#define WindowsWMControllerNotifyMask           (1L << 0)
 \&#define WindowsWMActivationNotifyMask           (1L << 1)
-.fi 
-.PP 
+.fi
+.PP
 Kinds of ControllerNotify events:
-.nf 
+.nf
 \&#define WindowsWMMinimizeWindow                 0
 \&#define WindowsWMMaximizeWindow                 1
 \&#define WindowsWMRestoreWindow                  2
@@ -139,32 +139,32 @@ Kinds of ControllerNotify events:
 \&#define WindowsWMMoveWindow                     6
 \&#define WindowsWMResizeWindow                   7
 \&#define WindowsWMActivateWindow                 8
-.fi 
-.PP 
+.fi
+.PP
 Kinds of ActivationNotify events:
-.nf 
+.nf
 \&#define WindowsWMIsActive                       0
 \&#define WindowsWMIsInactive                     1
-.fi 
-.PP 
+.fi
+.PP
 Errors:
-.nf 
+.nf
 \&#define WindowsWMClientNotLocal                 0
 \&#define WindowsWMOperationNotSupported          1
 \&#define WindowsWMNumberErrors                   2
-.fi 
-.PP 
+.fi
+.PP
 .B Window Parameters
-.PP 
+.PP
 Values for \fIframe_rect\fP argument to \fBXWindowsWMFrameGetRect\fP:
-.nf 
+.nf
 \&#define WindowsWMFrameRectTitleBar              1
 \&#define WindowsWMFrameRectTracking              2
 \&#define WindowsWMFrameRectGrowBox               3
-.fi 
-.PP 
+.fi
+.PP
 Window frame styles:
-.nf 
+.nf
 \&#define WindowsWMFrameStyleBorder               0x800000
 \&#define WindowsWMFrameStyleCaption              0xc00000
 \&#define WindowsWMFrameStyleChild                0x40000000
@@ -192,10 +192,10 @@ Window frame styles:
 \&#define WindowsWMFrameStyleTiledWindow          0xcf0000
 \&#define WindowsWMFrameStyleVisible              0x10000000
 \&#define WindowsWMFrameStyleVScroll              0x200000
-.fi 
-.PP 
+.fi
+.PP
 Window frame extended styles:
-.nf 
+.nf
 \&#define WindowsWMFrameStyleExAcceptFiles        16
 \&#define WindowsWMFrameStyleExAppWindow          0x40000
 \&#define WindowsWMFrameStyleExClientEdge         512
@@ -222,14 +222,14 @@ Window frame extended styles:
 \&#define WindowsWMFrameStyleExTopMost            8
 \&#define WindowsWMFrameStyleExTransparent        32
 \&#define WindowsWMFrameStyleExWindowEdge         256
-.fi 
+.fi
 
 .SH "DESCRIPTION"
 .B WindowsWM
 is a simple library designed to interface with the Windows\-WM extension.
 This extension allows X window managers to better interact with
 the Cygwin XWin server when running X11 in a rootless mode.
-.PP 
+.PP
 A more complete description will be forthcoming eventually.
 
 .SH "FUNCTIONS"
@@ -244,20 +244,20 @@ to a window. These calls may be nested and each call to
 unnested call to \fBXWindowsWMReenableUpdate\fP. Disabling updates applies
 to window content; however, it is implementation dependent whether window
 size and position changes are disabled as well.
-.PP 
+.PP
 .B XWindowsWMSelectInput
 is used to request that a client receive notification of the
 .B WindowsWM
 events listed above. The event mask specifies the event types the client is
 interested in receiving. Passing an event mask of 0 stops notification of
 events.
-.PP 
+.PP
 .B XWindowsWMSetFrontProcess
 directs the X server to make itself the front most application among all
 the other Windows applications. This causes X11 windows to move above
 other applications' windows and for the X server to start receiving
 keyboard and mouse events.
-.PP 
+.PP
 .B XWindowsWMFrameDraw
 can be used to decorate a top\-level window with the standard Windows window
 frame and widgets. The \fIframe_style\fP controls the overall look of the
@@ -265,10 +265,10 @@ window frame and \fIframe_style_ex\fP specifies the extended window style attrib
 .B XWindowsWMFrameGetRect
 is used to calculate the size of the rectangle from the size of the
 window content, which is being reparented.
-.PP 
+.PP
 .B XWindowsWMFrameSetTitle
 can be used to set the title of the Windows window decoration.
-.PP 
+.PP
 .B XWindowsWMFrameGetRect
 returns a rectangle that encloses an element of the window frame decoration.
 The \fIframe_rect\fP argument specifies the element of interest. The
@@ -280,7 +280,7 @@ receive events. The tracking rectangle is the area of the window containing
 the close, collapse and zoom boxes. Typically when the cursor is over this
 area, the window manager will highlight the close, collapse, and zoom
 buttons to conform to the standard Aqua interface.
-.PP 
+.PP
 Other functions include: \fBXWindowsWMQueryExtension\fP, which returns the event
 and error base codes and \fBXWindowsWMQueryVersion\fP, which returns the current
 version of the extension. (This information is cached by the library.)

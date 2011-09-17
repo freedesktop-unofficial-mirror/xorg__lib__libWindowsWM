@@ -42,7 +42,7 @@ XORG_CHECK_MALLOC_ZERO
 
 # Check for dependencies
 PKG_CHECK_MODULES(WINDOWSWM, x11 xext xextproto windowswmproto)
-		  
+
 AC_CONFIG_FILES([Makefile
 		src/Makefile
 		man/Makefile
